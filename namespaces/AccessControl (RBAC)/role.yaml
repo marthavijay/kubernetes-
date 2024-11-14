@@ -1,0 +1,9 @@
+apiVersion:  rbac.authorization.k8s.io/v1   
+kind: Role 
+metadata:
+  name: pod-log-reader
+  namespace: dev-team
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["nodes"]
+  verbs: ["watch", "list"]

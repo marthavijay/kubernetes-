@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  namespace: devopsteam  # Corrected "namesapce" to "namespace"
+  name: devopsteam-ns-lr
+spec:
+  limits:
+  - type: Pod  # "pod" should be "Pod" to match the case
+    min:
+      cpu: "60m"
+      memory: "100Mi"
+    max:
+      cpu: "100m"
+      memory: "150Mi"
