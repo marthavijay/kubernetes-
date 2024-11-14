@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:                # Fixed typo: 'lables' to 'labels'
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:        # Fixed typo: 'matchLables' to 'matchLabels'
+      app: nginx
+  template:
+    metadata:
+      labels:           # Fixed typo: 'lables' to 'labels'
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80  # Fixed typo: 'conatinerport' to 'containerPort'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:                    # Fixed indentation
+  type: NodePort         # Fixed indentation
+  ports:
+    - port: 80
+      targetPort: 80     # Fixed typo: 'targetport' to 'targetPort'
+  selector:
+    app: nginx
